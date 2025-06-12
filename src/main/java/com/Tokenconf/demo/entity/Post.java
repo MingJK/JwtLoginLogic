@@ -6,7 +6,6 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +19,8 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Account userId;
+
+    public void updateContent(String content) {
+        this.content = content;
+    }
 }

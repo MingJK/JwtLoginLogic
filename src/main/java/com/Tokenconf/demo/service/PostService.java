@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostService {
 
-
     private final PostRepository postRepository;
 
     public List<Post> findAllPost() {
@@ -33,8 +32,8 @@ public class PostService {
     }
 
     @Transactional
-    public void updatePost(Long id, String newcontent) {
+    public void updatePost(Long id, String newContent) {
         Post post = postRepository.findById(id).orElse(null);
-        post.setContent(newcontent);
+        post.updateContent(newContent);
     }
 }
