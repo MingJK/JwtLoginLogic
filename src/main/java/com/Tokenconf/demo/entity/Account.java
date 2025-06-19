@@ -10,10 +10,10 @@ import lombok.Setter;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idnumber;
+    private long idNumber;
 
     @Column(unique = true)
-    private String idname;
+    private String idName;
     private String password;
     private String role; // 권한 : SCOPE_ROLE_USER, SCOPE_ROLE_ADMIN, SCOPE_ROLE_MANAGER
 }

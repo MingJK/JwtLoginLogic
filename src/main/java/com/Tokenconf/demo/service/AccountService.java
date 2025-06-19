@@ -16,17 +16,19 @@ public class AccountService {
 
     public Account signin(Account account) {
         account.setPassword(passwordEncoder.encode(account.getPassword()));
-        if(account.getRole()=null) {
+        if(account.getRole() == null) {
             account.setRole("ROLE_USER");
         }
         return accountRepository.save(account);
     }
 
-    public void sameUser(Account account) {
-        accountRepository.findByidName(account.getidName().
-                isPresent(m -> {
-                    throw new IllegalStateException("이미 사용중인 이름입니다.");
-                })
+    /*public void sameUser(Account account) {
+        accountRepository.findByidName(account.getIdName().isPresent(m -> {
+                throw new IllegalStateException("이미 사용중인 이름입니다.");
+            })
         );
+    }*/
+    public boolean existsByIdName (String idName) {
+        return !AccountRepository.existsByIdName(idName);
     }
 }
